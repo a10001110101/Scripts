@@ -69,7 +69,7 @@ while true; do
             ;;
         8)
             echo "Restarting HAL9000..."
-            sudo shutdown -r 0
+            sudo sh ./restart.sh
             ;;
         9)
             echo "Exiting.  Goodbye!"
