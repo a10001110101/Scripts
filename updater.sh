@@ -1,19 +1,19 @@
 #!/bin/bash
 #Created        7/13/2025
-#Modified       7/21/2025
+#Modified       2/13/2026
 
-function display_menu {
-    echo "----------------------------------------"
-    echo "Welcome to the HAL9000 Management System"
-    echo "----------------------------------------"
-    echo "1. Update the OS"
-    echo "2. Update WebUI"
-    echo "3. Autoremove packages"
-    echo "6. Get all installed packages"
-    echo "7. Find an installed package"
-    echo "8. Restart"
-    echo "9. Exit"
-    echo "----------------------------------------"
+display_menu() {
+        echo "----------------------------------------"
+        echo "Welcome to the HAL9000 Management System"
+        echo "----------------------------------------"
+        echo "1. Update the OS"
+        echo "2. Update Open-WebUI"
+        echo "3. Autoremove packages"
+        echo "6. Get all installed packages"
+        echo "7. Find an installed package"
+        echo "8. Restart"
+        echo "9. Exit"
+        echo "----------------------------------------"
 }
 
 while true; do
@@ -33,7 +33,7 @@ while true; do
             ;;
         2)
             echo "Running webui-updater.sh script..."
-            sudo sh ./webui-updater.sh
+            ./webui-updater.sh
             ;;
         3)
             echo "Autoremoving packages..."
