@@ -1,6 +1,6 @@
 #!/bin/bash
 #Created        7/13/2025
-#Modified       2/13/2026
+#Modified       3/13/2026
 
 display_menu() {
         echo "----------------------------------------"
@@ -8,7 +8,8 @@ display_menu() {
         echo "----------------------------------------"
         echo "1. Update the OS"
         echo "2. Update Open-WebUI"
-        echo "3. Autoremove packages"
+        echo "3. Update Ollama"
+        echo "4. Autoremove packages"
         echo "6. Get all installed packages"
         echo "7. Find an installed package"
         echo "8. Restart"
@@ -32,10 +33,26 @@ while true; do
             fi
             ;;
         2)
-            echo "Running webui-updater.sh script..."
+            echo "Updating Open-WebUI..."
             ./webui-updater.sh
+            read -p "Press Enter to continue or 'q' to quit: " input
+            echo
+            if [[ "${input,,}" == "q" ]]; then
+                echo "Exiting.  Goodby!"
+                exit 0
+            fi
             ;;
         3)
+            echo "Updating Ollama..."
+            ./ollama-updater.sh
+            read -p "Press Enter to continue or 'q' to quit: " input
+            echo
+            if [[ "${input,,}" == "q" ]]; then
+                echo "Exiting.  Goodbye!"
+                exit 0
+            fi
+            ;;
+        4)
             echo "Autoremoving packages..."
             sudo apt autoremove
             read -p "Press Enter to continue or 'q' to quit: " input
