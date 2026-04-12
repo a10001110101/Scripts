@@ -1,6 +1,6 @@
 #!/bin/bash
 #Created        7/13/2025
-#Modified       3/13/2026
+#Modified       4/12/2026
 
 display_menu() {
         echo "----------------------------------------"
@@ -10,6 +10,7 @@ display_menu() {
         echo "2. Update Open-WebUI"
         echo "3. Update Ollama"
         echo "4. Autoremove packages"
+        echo "5. Get all Docker containers"
         echo "6. Get all installed packages"
         echo "7. Find an installed package"
         echo "8. Restart"
@@ -55,6 +56,16 @@ while true; do
         4)
             echo "Autoremoving packages..."
             sudo apt autoremove
+            read -p "Press Enter to continue or 'q' to quit: " input
+            echo
+            if [[ "${input,,}" == "q" ]]; then
+                echo "Exiting.  Goodbye!"
+                exit 0
+            fi
+            ;;
+        5)
+            echo "Listing all Docker containers..."
+            sudo docker container ls --all
             read -p "Press Enter to continue or 'q' to quit: " input
             echo
             if [[ "${input,,}" == "q" ]]; then
